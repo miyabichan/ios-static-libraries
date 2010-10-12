@@ -27,17 +27,17 @@ set -e
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Download source
-if [ ! -e "zlib-${ZLIB_VERSION}.tar.gz" ]
+if [ ! -e "curl-${CURL_VERSION}.tar.gz" ]
 then
-  curl -O "http://zlib.net/zlib-${ZLIB_VERSION}.tar.gz"
+  curl -O "http://curl.haxx.se/download/curl-${CURL_VERSION}.tar.gz"
 fi
 
 # Extract source
-rm -rf "zlib-${ZLIB_VERSION}"
-tar zxvf "zlib-${ZLIB_VERSION}.tar.gz"
+rm -rf "curl-${CURL_VERSION}"
+tar zxvf "curl-${CURL_VERSION}.tar.gz"
 
 # Build
-pushd "zlib-${ZLIB_VERSION}"
+pushd "curl-${CURL_VERSION}"
 export DEVROOT="${DEVELOPER}/Platforms/${PLATFORM}.platform/Developer"
 export SDKROOT="${DEVROOT}/SDKs/${PLATFORM}${SDK}.sdk"
 export CC=${DEVROOT}/usr/bin/gcc
@@ -52,10 +52,10 @@ export RANLIB=${DEVROOT}/usr/bin/ranlib
 export LDFLAGS="-arch ${ARCH} -pipe -no-cpp-precomp -isysroot ${SDKROOT} -L${ROOTDIR}/lib"
 export CFLAGS="-arch ${ARCH} -pipe -no-cpp-precomp -isysroot ${SDKROOT} -I${ROOTDIR}/include"
 export CXXFLAGS="-arch ${ARCH} -pipe -no-cpp-precomp -isysroot ${SDKROOT} -I${ROOTDIR}/include"
-./configure --host=${ARCH}-apple-darwin --prefix=${ROOTDIR}
+./configure --host=${ARCH}-apple-darwin --prefix=${ROOTDIR} --with-ssl=${ROOTDIR} --with-libssh2=${ROOTDIR} --with-random=/dev/urandom --disable-shared --disable-ipv6 --disable-manual --disable-verbose
 make
 make install
 popd
 
 # Clean up
-rm -rf "zlib-${ZLIB_VERSION}"
+rm -rf "curl-${CURL_VERSION}"

@@ -49,6 +49,9 @@ export LIBGPG_ERROR_VERSION="1.9"
 export LIBGCRYPT_VERSION="1.4.6"
 export LIBSSH2_VERSION="1.2.7"
 
+# Project version to build curl
+export CURL_VERSION="7.21.2"
+
 # Platforms to build for (changing this may break the build)
 PLATFORMS="iPhoneSimulator iPhoneOS"
 
@@ -96,6 +99,9 @@ do
   
   # Build libssh2
   ./build-libssh2.sh > "${ROOTDIR}-libssh2.log"
+  
+  # Build cURL
+  ./build-cURL.sh > "${ROOTDIR}-cURL.log"
   
 done
 
