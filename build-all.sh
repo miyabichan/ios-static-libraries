@@ -43,13 +43,11 @@ export LIBETPAN_VERSION="1.0"
 # Project version to use to build zlib (changing this may break the build)
 export ZLIB_VERSION="1.2.5"
 
-# Project versions to use to build libssh2 (changing this may break the build)
+# Project versions to use to build libssh2 and cURL (changing this may break the build)
 export GNUPG_VERSION="1.4.10"
 export LIBGPG_ERROR_VERSION="1.9"
 export LIBGCRYPT_VERSION="1.4.6"
 export LIBSSH2_VERSION="1.2.7"
-
-# Project version to build curl
 export CURL_VERSION="7.21.2"
 
 # Platforms to build for (changing this may break the build)
@@ -111,8 +109,8 @@ then
   DIRECTORY="Binaries"
   DATE=`date -u "+%Y-%m-%d-%H%M%S"`
   ARCHIVE="ios-libraries-${DATE}.zip"
-  MANIFEST="SDK ${SDK}\nOpenSSL ${OPENSSL_VERSION}\nCyrus SASL ${CYRUS_SASL_VERSION}\nlibEtPan ${LIBETPAN_VERSION}\nzlib ${ZLIB_VERSION}\nGnuPG ${GNUPG_VERSION}\nlibgpg-error ${LIBGPG_ERROR_VERSION}\nlibgcrypt ${LIBGCRYPT_VERSION}\nlibssh2 ${LIBSSH2_VERSION}"
-  SUMMARY="SDK ${SDK} + OpenSSL ${OPENSSL_VERSION} + Cyrus SASL ${CYRUS_SASL_VERSION} + libEtPan ${LIBETPAN_VERSION} + zlib ${ZLIB_VERSION} + GnuPG ${GNUPG_VERSION} + libgpg-error ${LIBGPG_ERROR_VERSION} + libgcrypt ${LIBGCRYPT_VERSION} + libssh2 ${LIBSSH2_VERSION}"
+  MANIFEST="SDK ${SDK}\nOpenSSL ${OPENSSL_VERSION}\nCyrus SASL ${CYRUS_SASL_VERSION}\nlibEtPan ${LIBETPAN_VERSION}\nzlib ${ZLIB_VERSION}\nGnuPG ${GNUPG_VERSION}\nlibgpg-error ${LIBGPG_ERROR_VERSION}\nlibgcrypt ${LIBGCRYPT_VERSION}\nlibssh2 ${LIBSSH2_VERSION}\ncURL ${CURL_VERSION}"
+  SUMMARY="SDK ${SDK} + OpenSSL ${OPENSSL_VERSION} + Cyrus SASL ${CYRUS_SASL_VERSION} + libEtPan ${LIBETPAN_VERSION} + zlib ${ZLIB_VERSION} + GnuPG ${GNUPG_VERSION} + libgpg-error ${LIBGPG_ERROR_VERSION} + libgcrypt ${LIBGCRYPT_VERSION} + libssh2 ${LIBSSH2_VERSION} + cURL ${CURL_VERSION}"
   
   # Build archive
   mkdir -p "${DIRECTORY}"
