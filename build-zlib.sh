@@ -52,7 +52,7 @@ export RANLIB=${DEVROOT}/usr/bin/ranlib
 export LDFLAGS="-arch ${ARCH} -pipe -no-cpp-precomp -isysroot ${SDKROOT} -L${ROOTDIR}/lib"
 export CFLAGS="-arch ${ARCH} -pipe -no-cpp-precomp -isysroot ${SDKROOT} -I${ROOTDIR}/include"
 export CXXFLAGS="-arch ${ARCH} -pipe -no-cpp-precomp -isysroot ${SDKROOT} -I${ROOTDIR}/include"
-./configure --host=${ARCH}-apple-darwin --prefix=${ROOTDIR}
+./configure --prefix=${ROOTDIR}
 make
 make install
 popd
