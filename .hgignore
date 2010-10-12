@@ -1,0 +1,16 @@
+syntax: glob
+
+.DS_Store
+
+cyrus-sasl-*
+gnupg-*
+libetpan-*
+libgcrypt-*
+libgpg-error-*
+libssh2-*
+openssl-*
+zlib-*
+
+iPhoneSimulator-*
+iPhoneOS-*
+
