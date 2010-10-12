@@ -120,6 +120,6 @@ then
   # Upload to Google Code
   if [ "$3" != "" ]
   then
-    ./googlecode_upload.pl --file "${ARCHIVE}" --summary "${SUMMARY}" --labels "Type-Archive" --project "libetpan-iphone" --user "$3"
+    ./googlecode_upload.pl --file "${ARCHIVE}" --summary "${SUMMARY}" --labels "Type-Archive" --project "ios-static-libraries" --user "$3"
   fi
 fi
