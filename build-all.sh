@@ -99,8 +99,8 @@ do
   
 done
 
-# Submit binaries to Google Code
-if [ "$2" == "--upload-binaries" ]
+# Create archive if necessary
+if [ "$2" == "--create-archive" ]
 then
   DIRECTORY="Binaries"
   DATE=`date -u "+%Y-%m-%d-%H%M%S"`
@@ -115,11 +115,11 @@ then
     mv "${PLATFORM}-${SDK}" "${DIRECTORY}"
   done
   ditto -c -k --keepParent "${DIRECTORY}" "${ARCHIVE}"
+  rm -rf "${DIRECTORY}"
   
   # Upload to Google Code
-  ./googlecode_upload.pl --summary "${SUMMARY}" --labels "Type-Archive" --project "libetpan-iphone" --user "info@pol-online.net" --file "${ARCHIVE}"
-  
-  # Clean up
-  rm -f "${ARCHIVE}"
-  rm -rf "${DIRECTORY}"
+  if [ "$3" != "" ]
+  then
+    ./googlecode_upload.pl --file "${ARCHIVE}" --summary "${SUMMARY}" --labels "Type-Archive" --project "libetpan-iphone" --user "$3"
+  fi
 fi
