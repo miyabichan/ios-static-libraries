@@ -65,8 +65,8 @@ do
   else
     ARCH="i386"
   fi
-  #rm -rf "${ROOTDIR}"
-  #mkdir -p "${ROOTDIR}"
+  rm -rf "${ROOTDIR}"
+  mkdir -p "${ROOTDIR}"
   
   export DEVELOPER="${DEVELOPER}"
   export ROOTDIR="${ROOTDIR}"
@@ -75,28 +75,28 @@ do
   export ARCH="${ARCH}"
   
   # Build zlib
-  #./build-zlib.sh > "${ROOTDIR}-zlib.log"
+  ./build-zlib.sh > "${ROOTDIR}-zlib.log"
   
   # Build OpenSSL
-  #./build-openssl.sh > "${ROOTDIR}-OpenSSL.log"
+  ./build-openssl.sh > "${ROOTDIR}-OpenSSL.log"
   
   # Build Cyrus SASL
-  #./build-cyrus-sasl.sh > "${ROOTDIR}-Cyrus-SASL.log"
+  ./build-cyrus-sasl.sh > "${ROOTDIR}-Cyrus-SASL.log"
   
   # Build libEtPan
-  #./build-libetpan.sh > "${ROOTDIR}-libEtPan.log"
+  ./build-libetpan.sh > "${ROOTDIR}-libEtPan.log"
   
   # Build GnuPG
-  #./build-GnuPG.sh > "${ROOTDIR}-GnuPG.log"
+  ./build-GnuPG.sh > "${ROOTDIR}-GnuPG.log"
   
   # Build libgpg-error
-  #./build-libgpg-error.sh > "${ROOTDIR}-libgpg-error.log"
+  ./build-libgpg-error.sh > "${ROOTDIR}-libgpg-error.log"
   
   # Build libgcrypt
-  #./build-libgcrypt.sh > "${ROOTDIR}-libgcrypt.log"
+  ./build-libgcrypt.sh > "${ROOTDIR}-libgcrypt.log"
   
   # Build libssh2
-  #./build-libssh2.sh > "${ROOTDIR}-libssh2.log"
+  ./build-libssh2.sh > "${ROOTDIR}-libssh2.log"
   
   # Build cURL
   ./build-cURL.sh > "${ROOTDIR}-cURL.log"
