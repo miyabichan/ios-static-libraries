@@ -38,7 +38,7 @@ tar zxvf "cyrus-sasl-${CYRUS_SASL_VERSION}.tar.gz"
 
 # Build
 pushd "cyrus-sasl-${CYRUS_SASL_VERSION}"
-CC="${DEVELOPER}/Platforms/${PLATFORM}.platform/Developer/usr/bin/gcc-4.2"
+CC="${DEVELOPER}/Platforms/${PLATFORM}.platform/Developer/usr/bin/gcc"
 CFLAGS="-isysroot ${DEVELOPER}/Platforms/${PLATFORM}.platform/Developer/SDKs/${PLATFORM}${SDK}.sdk -arch ${ARCH} -pipe -Os -gdwarf-2"
 LDFLAGS="-isysroot ${DEVELOPER}/Platforms/${PLATFORM}.platform/Developer/SDKs/${PLATFORM}${SDK}.sdk -arch ${ARCH}"
 if [ "${SDK}" == "3.2" ]

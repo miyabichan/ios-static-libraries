@@ -62,7 +62,7 @@ then
     export CXXFLAGS="${CXXFLAGS} -mmacosx-version-min=10.5"
   fi
 fi
-./configure --host=${ARCH}-apple-darwin --prefix=${ROOTDIR}
+./configure --host=${ARCH}-apple-darwin --prefix=${ROOTDIR} --without-included-zlib --with-zlib=${ROOTDIR}
 mv "Makefile" "Makefile~"
 sed '/checks =/d' "Makefile~" > "Makefile"  # Patch Makefile to disable checks
 make

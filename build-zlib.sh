@@ -62,9 +62,9 @@ then
     export CXXFLAGS="${CXXFLAGS} -mmacosx-version-min=10.5"
   fi
 fi
-./configure --prefix=${ROOTDIR}
+./configure --prefix=${ROOTDIR} --static
 make
-make install
+make install --ignore-errors  # Ignore errors due to share libraries missing
 popd
 
 # Clean up

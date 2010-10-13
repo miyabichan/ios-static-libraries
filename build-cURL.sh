@@ -62,9 +62,15 @@ then
     export CXXFLAGS="${CXXFLAGS} -mmacosx-version-min=10.5"
   fi
 fi
-./configure --host=${ARCH}-apple-darwin --prefix=${ROOTDIR} --with-ssl=${ROOTDIR} --with-libssh2=${ROOTDIR} --with-random=/dev/urandom --disable-shared --disable-ipv6 --disable-manual --disable-verbose
+./configure --host=${ARCH}-apple-darwin --prefix=${ROOTDIR} --with-ssl=${ROOTDIR} --with-zlib=${ROOTDIR} --with-libssh2=${ROOTDIR} --with-random=/dev/urandom --disable-shared --enable-static --disable-ipv6 --disable-manual --disable-verbose
+pushd "lib"
 make
 make install
+popd
+pushd "include"
+make
+make install
+popd
 popd
 
 # Clean up

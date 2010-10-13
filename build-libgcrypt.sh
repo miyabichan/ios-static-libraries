@@ -62,7 +62,7 @@ then
     export CXXFLAGS="${CXXFLAGS} -mmacosx-version-min=10.5"
   fi
 fi
-./configure --host=${ARCH}-apple-darwin --prefix=${ROOTDIR} --enable-shared=no --with-gpg-error-prefix=${ROOTDIR}
+./configure --host=${ARCH}-apple-darwin --prefix=${ROOTDIR} --disable-shared --enable-static --with-gpg-error-prefix=${ROOTDIR}
 make
 make install
 popd

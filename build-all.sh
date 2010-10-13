@@ -35,13 +35,13 @@ then
   exit 1
 fi
 
+# Project version to use to build zlib (changing this may break the build)
+export ZLIB_VERSION="1.2.5"
+
 # Project versions to use to build libEtPan (changing this may break the build)
 export OPENSSL_VERSION="1.0.0a"
 export CYRUS_SASL_VERSION="2.1.23"
 export LIBETPAN_VERSION="1.0"
-
-# Project version to use to build zlib (changing this may break the build)
-export ZLIB_VERSION="1.2.5"
 
 # Project versions to use to build libssh2 and cURL (changing this may break the build)
 export GNUPG_VERSION="1.4.10"
@@ -65,8 +65,8 @@ do
   else
     ARCH="i386"
   fi
-  rm -rf "${ROOTDIR}"
-  mkdir -p "${ROOTDIR}"
+  #rm -rf "${ROOTDIR}"
+  #mkdir -p "${ROOTDIR}"
   
   export DEVELOPER="${DEVELOPER}"
   export ROOTDIR="${ROOTDIR}"
@@ -74,29 +74,29 @@ do
   export SDK="${SDK}"
   export ARCH="${ARCH}"
   
+  # Build zlib
+  #./build-zlib.sh > "${ROOTDIR}-zlib.log"
+  
   # Build OpenSSL
-  ./build-openssl.sh > "${ROOTDIR}-OpenSSL.log"
+  #./build-openssl.sh > "${ROOTDIR}-OpenSSL.log"
   
   # Build Cyrus SASL
-  ./build-cyrus-sasl.sh > "${ROOTDIR}-Cyrus-SASL.log"
+  #./build-cyrus-sasl.sh > "${ROOTDIR}-Cyrus-SASL.log"
   
   # Build libEtPan
-  ./build-libetpan.sh > "${ROOTDIR}-libEtPan.log"
-  
-  # Build zlib
-  ./build-zlib.sh > "${ROOTDIR}-zlib.log"
+  #./build-libetpan.sh > "${ROOTDIR}-libEtPan.log"
   
   # Build GnuPG
-  ./build-GnuPG.sh > "${ROOTDIR}-GnuPG.log"
+  #./build-GnuPG.sh > "${ROOTDIR}-GnuPG.log"
   
   # Build libgpg-error
-  ./build-libgpg-error.sh > "${ROOTDIR}-libgpg-error.log"
+  #./build-libgpg-error.sh > "${ROOTDIR}-libgpg-error.log"
   
   # Build libgcrypt
-  ./build-libgcrypt.sh > "${ROOTDIR}-libgcrypt.log"
+  #./build-libgcrypt.sh > "${ROOTDIR}-libgcrypt.log"
   
   # Build libssh2
-  ./build-libssh2.sh > "${ROOTDIR}-libssh2.log"
+  #./build-libssh2.sh > "${ROOTDIR}-libssh2.log"
   
   # Build cURL
   ./build-cURL.sh > "${ROOTDIR}-cURL.log"

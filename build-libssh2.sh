@@ -62,7 +62,7 @@ then
     export CXXFLAGS="${CXXFLAGS} -mmacosx-version-min=10.5"
   fi
 fi
-./configure --host=${ARCH}-apple-darwin --prefix=${ROOTDIR} --with-libgcrypt-prefix=${ROOTDIR}
+./configure --host=${ARCH}-apple-darwin --prefix=${ROOTDIR} --with-libgcrypt --with-libgcrypt-prefix=${ROOTDIR} --with-libz --with-libz-prefix=-${ROOTDIR} -with-openssl --with-libssl-prefix=${ROOTDIR} --disable-shared --enable-static
 make
 make install
 popd

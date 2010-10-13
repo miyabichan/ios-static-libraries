@@ -38,8 +38,8 @@ tar zxvf "openssl-${OPENSSL_VERSION}.tar.gz"
 
 # Build
 pushd "openssl-${OPENSSL_VERSION}"
-./config no-asm no-krb5 no-gost "--openssldir=${ROOTDIR}"
-CC="${DEVELOPER}/Platforms/${PLATFORM}.platform/Developer/usr/bin/gcc-4.2"
+./config no-shared no-asm no-krb5 no-gost zlib --openssldir=${ROOTDIR}
+CC="${DEVELOPER}/Platforms/${PLATFORM}.platform/Developer/usr/bin/gcc"
 CFLAGS="-D_DARWIN_C_SOURCE -UOPENSSL_BN_ASM_PART_WORDS -arch ${ARCH} -isysroot ${DEVELOPER}/Platforms/${PLATFORM}.platform/Developer/SDKs/${PLATFORM}${SDK}.sdk"
 LDFLAGS="-arch ${ARCH} -dynamiclib"
 if [ "${SDK}" == "3.2" ]
