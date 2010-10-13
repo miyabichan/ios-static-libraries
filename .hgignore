@@ -17,3 +17,7 @@ iPhoneOS-*
 
 ios-libraries-*
 
+*.mode1v3
+*.pbxuser
+build
+
