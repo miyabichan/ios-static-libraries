@@ -52,6 +52,16 @@ export RANLIB=$DEVROOT/usr/bin/ranlib
 export LDFLAGS="-arch ${ARCH} -pipe -no-cpp-precomp -isysroot ${SDKROOT} -L${ROOTDIR}/lib"
 export CFLAGS="-arch ${ARCH} -pipe -no-cpp-precomp -isysroot ${SDKROOT} -I${ROOTDIR}/include"
 export CXXFLAGS="-arch ${ARCH} -pipe -no-cpp-precomp -isysroot ${SDKROOT} -I${ROOTDIR}/include"
+if [ "${SDK}" == "3.2" ]
+then
+  if [ "${PLATFORM}" == "iPhoneSimulator" ]
+  then
+    # Work around linker error "ld: library not found for -lcrt1.10.6.o" on iPhone Simulator 3.2
+    export LDFLAGS="${LDFLAGS} -mmacosx-version-min=10.5"
+    export CFLAGS="${CFLAGS} -mmacosx-version-min=10.5"
+    export CXXFLAGS="${CXXFLAGS} -mmacosx-version-min=10.5"
+  fi
+fi
 ./configure --host=${ARCH}-apple-darwin --prefix=${ROOTDIR}
 mv "Makefile" "Makefile~"
 sed '/checks =/d' "Makefile~" > "Makefile"  # Patch Makefile to disable checks
