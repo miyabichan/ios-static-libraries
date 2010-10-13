@@ -101,6 +101,16 @@ do
   # Build cURL
   ./build-cURL.sh > "${ROOTDIR}-cURL.log"
   
+  # Remove junk
+  rm -rf "${ROOTDIR}/bin"
+  rm -rf "${ROOTDIR}/certs"
+  rm -rf "${ROOTDIR}/libexec"
+  rm -rf "${ROOTDIR}/man"
+  rm -rf "${ROOTDIR}/misc"
+  rm -rf "${ROOTDIR}/private"
+  rm -rf "${ROOTDIR}/sbin"
+  rm -rf "${ROOTDIR}/share"
+  rm -rf "${ROOTDIR}/openssl.cnf"
 done
 
 # Create archive if necessary
