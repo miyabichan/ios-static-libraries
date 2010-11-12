@@ -39,6 +39,7 @@
     libssh2_session_free(session);
   }
   
+  // Test linking with curl
   {
     curl_global_init(CURL_GLOBAL_DEFAULT);
     CURL* handle = curl_easy_init();
