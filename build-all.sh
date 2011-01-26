@@ -39,16 +39,16 @@ fi
 export ZLIB_VERSION="1.2.5"
 
 # Project versions to use to build libEtPan (changing this may break the build)
-export OPENSSL_VERSION="1.0.0a"
+export OPENSSL_VERSION="1.0.0c"
 export CYRUS_SASL_VERSION="2.1.23"
 export LIBETPAN_VERSION="1.0"
 
 # Project versions to use to build libssh2 and cURL (changing this may break the build)
-export GNUPG_VERSION="1.4.10"
-export LIBGPG_ERROR_VERSION="1.9"
+export GNUPG_VERSION="1.4.11"
+export LIBGPG_ERROR_VERSION="1.10"
 export LIBGCRYPT_VERSION="1.4.6"
 export LIBSSH2_VERSION="1.2.7"
-export CURL_VERSION="7.21.2"
+export CURL_VERSION="7.21.3"
 
 # Platforms to build for (changing this may break the build)
 PLATFORMS="iPhoneSimulator iPhoneOS"
