@@ -51,7 +51,7 @@ export LIBSSH2_VERSION="1.2.7"
 export CURL_VERSION="7.21.3"
 
 # Platforms to build for (changing this may break the build)
-PLATFORMS="iPhoneSimulator iPhoneOS"
+PLATFORMS="iPhoneSimulator iPhoneOS-V6 iPhoneOS-V7"
 
 # Build projects
 DEVELOPER=`xcode-select --print-path`
@@ -59,8 +59,13 @@ TOPDIR=`pwd`
 for PLATFORM in ${PLATFORMS}
 do
   ROOTDIR="${TOPDIR}/${PLATFORM}-${SDK}"
-  if [ "${PLATFORM}" == "iPhoneOS" ]
+  if [ "${PLATFORM}" == "iPhoneOS-V7" ]
   then
+    PLATFORM="iPhoneOS"
+    ARCH="armv7"
+  elif [ "${PLATFORM}" == "iPhoneOS-V6" ]
+  then
+    PLATFORM="iPhoneOS"
     ARCH="armv6"
   else
     ARCH="i386"
