@@ -35,6 +35,15 @@ then
   exit 1
 fi
 
+# Project version to use to build c-ares (changing this may break the build)
+export CARES_VERSION="1.7.3"
+
+# Project version to use to build bzip2 (changing this may break the build)
+export BZIP2_VERSION="1.0.6"
+
+# Project version to use to build expat (changing this may break the build)
+export EXPAT_VERSION="2.0.1"
+
 # Project version to use to build zlib (changing this may break the build)
 export ZLIB_VERSION="1.2.5"
 
@@ -79,6 +88,15 @@ do
   export SDK="${SDK}"
   export ARCH="${ARCH}"
   
+  # Build c-ares
+  ./build-cares.sh > "${ROOTDIR}-cares.log"
+
+  # Build bzip2
+  ./build-bzip2.sh > "${ROOTDIR}-bzip2.log"
+
+  # Build expat
+  ./build-expat.sh > "${ROOTDIR}-expat.log"
+
   # Build zlib
   ./build-zlib.sh > "${ROOTDIR}-zlib.log"
   
