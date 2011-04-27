@@ -30,9 +30,16 @@ set -e
 SDK=$1
 if [ "${SDK}" == "" ]
 then
-  echo "Please specify an iOS SDK version number from the following possibilities:"
-  xcodebuild -showsdks | grep "iphoneos"
-  exit 1
+  AVAIL_SDKS=`xcodebuild -showsdks | grep "iphoneos"`
+  FIRST_SDK=`echo "$AVAIL_SDKS" | head -n1`
+  if [ "$AVAIL_SDKS" == "$FIRST_SDK" ]; then
+    SDK=`echo "$FIRST_SDK" | cut -d\  -f2`
+    echo "No iOS SDK specified. Using the only one available: $SDK"
+  else
+    echo "Please specify an iOS SDK version number from the following possibilities:"
+    echo "$AVAIL_SDKS"
+    exit 1
+  fi
 fi
 
 # Project version to use to build c-ares (changing this may break the build)
