@@ -52,7 +52,7 @@ export BZIP2_VERSION="1.0.6"
 export EXPAT_VERSION="2.0.1"
 
 # Project version to use to build zlib (changing this may break the build)
-export ZLIB_VERSION="1.2.5"
+export ZLIB_VERSION="1.2.6"
 
 # Project versions to use to build libEtPan (changing this may break the build)
 export OPENSSL_VERSION="1.0.0c"
